@@ -21,10 +21,21 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
-  //const { connectWallet } = useContext(TransactionContext);
-  
+  const {
+    connectWallet,
+    currentAccount,
+    formData,
+    sendTransaction,
+    handleChange,
+  } = useContext(TransactionContext);
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    const { addressTo, amount, keyword, message } = formData;
+    e.preventDefault();
+    if (!addressTo || !amount || !keyword || !message) return;
+
+    sendTransaction();
+  };
 
   return (
     <section className="flex w-full justify-center items-center ">
@@ -36,17 +47,20 @@ const Welcome = () => {
           <p className="text-left mt-5 text-white font-light md:w-9/12w-11/12 text-base">
             Explore crypto world by making transactions with your friends.
           </p>
-          <button
-            type="button"
-            //onClick={connectWallet}
-            className={buttonStyles}
-          >
-            Connect wallet
-          </button>
+
+          {!currentAccount && (
+            <button
+              type="button"
+              onClick={connectWallet}
+              className={buttonStyles}
+            >
+              Connect wallet
+            </button>
+          )}
         </article>
 
         <article className="flex flex-col flex-1 items-center justify-start w-full md:mt-0 mt-10">
-          <div className="p-3 justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card">
+          <div className="p-3 justify-end items-start flex-col rounded-xl h-40 md:w-72 w-full my-5 eth-card">
             <div className="flex justify-between flex-col w-full h-full">
               <div className="flex justify-between items-start">
                 <div className=" w-10 h-10 rounded-full border-2 border-white flex justify-center items-center">
@@ -55,40 +69,42 @@ const Welcome = () => {
                 <BsInfoCircle fontSize={17} color="#fff" />
               </div>
               <div>
-                <p className="text-white font-light text-sm">0x0000000000000</p>
+                <p className="text-white font-light text-xs">
+                  {currentAccount}
+                </p>
                 <p className="text-white font-semibold text-lg mt-1">
                   Ethereum
                 </p>
               </div>
             </div>
           </div>
-          <div className="p-5 w-full flex flex-col flex-1 justify-start items-center rounded-2xl border-[1px] border-gray-400">
+          <div className="p-5 w-full md:w-72 flex flex-col flex-1 justify-start items-center rounded-2xl border-[1px] border-gray-400">
             <Input
               placeholder="Address To"
               name="addressTo"
               type="text"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
             <Input
               placeholder="Amount (ETH"
               name="amount"
               type="number"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
             <Input
               placeholder="Keyword (Gif)"
               name="keyword"
               type="text"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
             <Input
               placeholder="Enter message"
               name="message"
               type="text"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
-            {true ? (
+            {false ? (
               <Loader />
             ) : (
               <button
