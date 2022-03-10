@@ -37,7 +37,7 @@ const Welcome = () => {
 
   return (
     <section className="flex w-full justify-center items-center ">
-      <div className="flex md:flex-row md:items-center flex-col items-start justify-between md:p-20 py-12 px-4">
+      <div className="flex md:flex-row md:min-h-[70vh] md:items-center flex-col items-start justify-between md:p-20 py-12 px-4">
         <article className="flex flex-1 justify-start flex-col md:mr-10">
           <h1 className="text-3xl sm-text-5xl text-white py-1">
             Send ETH and GIF
@@ -47,7 +47,7 @@ const Welcome = () => {
             message.
           </p>
 
-          <div className="p-3 justify-end md:self-center items-start flex-col rounded-xl h-40 md:w-72 w-full my-5 eth-card">
+          <div className="p-3 justify-end md:self-center items-start flex-col rounded-xl h-40 md:w-80 w-full my-5 eth-card">
             <div className="flex justify-between flex-col w-full h-full">
               <div className="flex justify-between items-start">
                 <div className=" w-10 h-10 rounded-full border-2 border-white flex justify-center items-center">
@@ -70,7 +70,7 @@ const Welcome = () => {
             <button
               type="button"
               onClick={connectWallet}
-              className="flex flex-row text-white font-semibold justify-center items-center md:w-72 md:self-center my-3 p-3 border-2 rounded-full border-white bg-[#000000] cursor-pointer hover:bg-[#2546bd]"
+              className="flex flex-row text-white font-semibold justify-center items-center md:w-80 md:self-center my-3 p-3 border-2 rounded-full border-white bg-[#000000] cursor-pointer hover:bg-[#2546bd]"
             >
               Connect wallet
             </button>
@@ -110,7 +110,7 @@ const Welcome = () => {
               <button
                 type="button"
                 onClick={handleSubmit}
-                className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer"
+                className="text-white w-full mt-5 mb-2.5 border-[1px] p-2 rounded-full cursor-pointer border-white bg-[#000000] cursor-pointer hover:bg-[#2546bd]"
               >
                 Send
               </button>
