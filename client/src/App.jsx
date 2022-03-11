@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer, Navbar, Transactions, Welcome } from "./components";
+import { Navbar, Transactions, Welcome } from "./components";
 
 const App = () => {
   return (
@@ -11,9 +11,6 @@ const App = () => {
       <main>
         <Transactions />
       </main>
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 };
