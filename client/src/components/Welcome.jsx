@@ -43,8 +43,8 @@ const Welcome = () => {
             Send ETH and GIF
           </h1>
           <p className="text-left mt-5 text-white font-light md:w-9/12w-11/12 text-base">
-            Make testnet transactions with your friends and add gifs as a
-            message.
+            Make testnet transactions on Rinkeby with your friends and add gifs
+            related to keyword.
           </p>
 
           <div className="p-3 justify-end md:self-center items-start flex-col rounded-xl h-40 md:w-80 w-full my-5 eth-card">
@@ -92,13 +92,13 @@ const Welcome = () => {
               handleChange={handleChange}
             />
             <Input
-              placeholder="Keyword (Gif)"
+              placeholder="Enter message"
               name="keyword"
               type="text"
               handleChange={handleChange}
             />
             <Input
-              placeholder="Enter message"
+              placeholder="Keyword (Gif)"
               name="message"
               type="text"
               handleChange={handleChange}
