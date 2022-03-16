@@ -147,6 +147,8 @@ export const TransactionProvider = ({ children }) => {
         const transactionCount =
           await transactionContract.getTransactionCount();
         setTransactionCount(transactionCount.toNumber());
+
+        window.location.reload();
       } else {
         return alert("Please install metamask");
       }

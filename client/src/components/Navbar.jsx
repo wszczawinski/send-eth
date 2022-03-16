@@ -3,10 +3,6 @@ import { HiMenuAlt4 } from "react-icons/hi";
 import { BsLightningCharge } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
 
-const NavBarItem = ({ title, classprops }) => (
-  <li className={`mx-4 cursor-pointer ${classprops}`}>{title}</li>
-);
-
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -22,12 +18,27 @@ const Navbar = () => {
       </div>
 
       <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
-        {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => (
-          <NavBarItem key={item + index} title={item} />
-        ))}
-        <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
-          Login
-        </li>
+        <a
+          className={`mx-4 cursor-pointer`}
+          href={"https://www.rinkeby.io/#stats"}
+          target={"_blank"}
+        >
+          Rinkeby
+        </a>
+        <a
+          className={`mx-4 cursor-pointer`}
+          href={"https://duckduckgo.com/?q=rinkeby+faucet"}
+          target={"_blank"}
+        >
+          Faucet
+        </a>
+        <a
+          className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]"
+          href={"https://metamask.io/"}
+          target={"_blank"}
+        >
+          Metamask
+        </a>
       </ul>
       <div className="flex relative">
         {!toggleMenu && (
@@ -52,15 +63,28 @@ const Navbar = () => {
             <li className="text-xl w-full my-2">
               <AiOutlineClose onClick={() => setToggleMenu(false)} />
             </li>
-            {["Market", "Exchange", "Tutorials", "Wallets"].map(
-              (item, index) => (
-                <NavBarItem
-                  key={item + index}
-                  title={item}
-                  classprops="my-2 text-lg"
-                />
-              )
-            )}
+
+            <a
+              className={`mx-4 cursor-pointer my-4 text-lg`}
+              href={"https://www.rinkeby.io/#stats"}
+              target={"_blank"}
+            >
+              Rinkeby
+            </a>
+            <a
+              className={`mx-4 cursor-pointer my-4 text-lg`}
+              href={"https://duckduckgo.com/?q=rinkeby+faucet"}
+              target={"_blank"}
+            >
+              Faucet
+            </a>
+            <a
+              className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd] my-4 text-lg"
+              href={"https://metamask.io/"}
+              target={"_blank"}
+            >
+              Metamask
+            </a>
           </ul>
         )}
       </div>
